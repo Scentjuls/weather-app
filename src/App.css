@@ -7,17 +7,18 @@
 
 .weather-card {
   display: grid;
-  grid-template-columns: auto auto;
-  margin: 0 100px;
+  margin: 0 auto;
   height: 100%;
+  max-width: 380px;
+  text-align: center;
 }
 
 .welcome {
-  font-size: 5rem;
+  font-size: 2rem;
 }
 
 .weather-like {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .first-section {
@@ -33,12 +34,18 @@
   justify-content: space-between;
 }
 
-hr {
-  border: 1px solid white;
+form input {
+  height: 30px;
 }
 
-.second-section {
-  background-color: #fff;
-  opacity: 0.5;
-  color: black;
+.search-button {
+  background-color: black;
+  color: white;
+  margin-left: 10px;
+  height: 30px;
+  border: none;
+}
+
+.show-more {
+  cursor: pointer;
 }

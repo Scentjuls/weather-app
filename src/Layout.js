@@ -7,6 +7,7 @@ const Layout = () => {
     const [responseData, setResponseData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [location, setLocation] = useState('');
+    let [showMoreDoc, setShowMoreDoc] = useState(false);
 
     const onChange = (e) => {
         setLocation(e.target.value);
@@ -40,6 +41,10 @@ const Layout = () => {
                })
     }
 
+    const showMore = () => {
+        setShowMoreDoc(true);
+        }
+
     useEffect(() => {
            if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(function (position) {
@@ -56,9 +61,9 @@ return (
         <div className="weather-background" style={responseData?.main?.temp < 11 ? {background: `url(${SunBackground})`, color: 'black'} : {background: `url(${Background})`, color: 'white'}}>
            <div className="weather-card">
                 <div className="first-section">
-                    <h1 className="welcome"> Welcome,</h1>
-            <h3 className="weather-like">What is the weather like today?</h3>
-                     <p className="temperature">{Math.ceil(responseData?.main?.temp)} <sup>o</sup></p>
+                    <h3 className="welcome"> Welcome to the Weather App</h3>
+                    <h5 className="weather-like">What is the weather like today?</h5>
+                    <p className="temperature">{Math.ceil(responseData?.main?.temp)} <sup>o</sup></p>
                 <p> 
                     <p className="location">{responseData?.name}</p>
                 {responseData.weather && responseData.weather.map((e) => (
@@ -67,16 +72,11 @@ return (
                         <p> {e.main} </p>
                     </p>
                 ))}
-            </p>
-                </div>
-                <div className="second-section"> 
-                    <form>
-                        <input type="text" placeholder="another location" name="location" value={location} onChange={onChange} />
-                        <input type="submit" value="submit" />
-                    </form>
-
-                    <hr />
-                    <div>
+                </p>
+                <p onClick={showMore} class="show-more">Show more</p>
+               {
+                        showMoreDoc ? (
+                            <div className="">
                         <p>Weather details</p>
                         <div className="inline">
                             <span>Cloudy</span>
@@ -91,7 +91,12 @@ return (
                             <span>{responseData?.wind?.deg} <sup>o</sup></span>
                         </div>
                     </div>
-                    <hr />
+                        ) : ('')
+                }
+                <form>
+                        <input type="text" placeholder="another location" name="city name" value={location} onChange={onChange} />
+                        <button className="search-button">Search</button>
+                    </form>
                 </div>
             </div>
            
