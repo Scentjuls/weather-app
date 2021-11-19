@@ -1,38 +1,44 @@
-.App {
-  text-align: center;
+.weather-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  font-family: "Saira Semi Condensed", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.weather-card {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0 100px;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.welcome {
+  font-size: 5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather-like {
+  font-size: 2rem;
+}
+
+.first-section {
+  align-items: end;
+}
+
+.temperature {
+  font-size: 20px;
+}
+
+.inline {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+hr {
+  border: 1px solid white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.second-section {
+  background-color: #fff;
+  opacity: 0.5;
+  color: black;
 }
