@@ -60,7 +60,7 @@ const Layout = () => {
 return (
         <div className="weather-background" style={responseData?.main?.temp < 11 ? {background: `url(${SunBackground})`, color: 'black'} : {background: `url(${Background})`, color: 'white'}}>
            <div className="weather-card">
-                <div className="first-section">
+                <div>
                     <h3 className="welcome"> Welcome to the Weather App</h3>
                     <h5 className="weather-like">What is the weather like today?</h5>
                     <p className="temperature">{Math.ceil(responseData?.main?.temp)} <sup>o</sup></p>
